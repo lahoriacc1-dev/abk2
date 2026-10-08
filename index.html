@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Islamic Books Library | Free Islamic Books & Hadith</title>
+
+    <meta name="description"
+          content="Explore a collection of Islamic books, Hadith, Seerah, Fiqh, Quran and Islamic knowledge resources.">
+
+    <style>
+
+        /* =====================================================
+           BASIC SETTINGS
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f8f4;
+            color: #26352b;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* =====================================================
+           COLORS
+        ===================================================== */
+
+        :root {
+            --dark-green: #0d3b2e;
+            --green: #176b4d;
+            --light-green: #e8f3ed;
+            --gold: #c79a3b;
+            --cream: #fffdf7;
+            --white: #ffffff;
+            --text: #26352b;
+            --muted: #66736b;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .navbar {
+            width: 100%;
+            background: var(--dark-green);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 600px;
+
+            background:
+                linear-gradient(
+                    rgba(13, 59, 46, 0.88),
+                    rgba(13, 59, 46, 0.88)
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .arabic {
+            font-size: 45px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            direction: rtl;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            color: #e8eee9;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-gold:hover {
+            background: #a87e2c;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark-green);
+        }
+
+        /* =====================================================
+           GENERAL SECTIONS
+        ===================================================== */
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 75px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            color: var(--dark-green);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+        /* =====================================================
+           CATEGORIES
+        ===================================================== */
+
+        .categories {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-6px);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .category-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .category h3 {
+            color: var(--dark-green);
+        }
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .search-box {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px 18px;
+            border: 1px solid #d3ddd6;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            border: none;
+            background: var(--green);
+            color: white;
+            padding: 0 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* =====================================================
+           BOOK GRID
+        ===================================================== */
+
+        .book-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+
+            transition: 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-cover {
+            height: 180px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--dark-green),
+                    var(--green)
+                );
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 20px;
+        }
+
+        .book-cover h3 {
+            font-size: 22px;
+        }
+
+        .book-content {
+            padding: 22px;
+        }
+
+        .book-content h3 {
+            color: var(--dark-green);
+            margin-bottom: 8px;
+        }
+
+        .book-content p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .book-tag {
+            display: inline-block;
+            background: var(--light-green);
+            color: var(--green);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .read-btn {
+            display: block;
+            text-align: center;
+            background: var(--green);
+            color: white;
+            padding: 10px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .read-btn:hover {
+            background: var(--dark-green);
+        }
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+            background: var(--dark-green);
+            color: white;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            padding: 75px 25px;
+        }
+
+        .about h2 {
+            font-size: 35px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #e1ebe5;
+            font-size: 17px;
+        }
+
+        /* =====================================================
+           SOCIAL MEDIA
+        ===================================================== */
+
+        .social-section {
+            text-align: center;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-btn {
+            padding: 14px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            min-width: 180px;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .instagram {
+            background: #d62976;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #092b21;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #b9c8bf;
+            margin-bottom: 8px;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .arabic {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                padding: 13px;
+            }
+
+            .section {
+                padding: 55px 18px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     WEBSITE SETTINGS
+========================================================= -->
+
+<script>
+
+    /*
+       ========================================================
+       CHANGE YOUR SOCIAL MEDIA DETAILS HERE
+       ========================================================
+
+       1. Replace YOUR_USERNAME with your Instagram username.
+
+       2. Replace 923001234567 with your WhatsApp number.
+
+       IMPORTANT:
+       WhatsApp number should be international format.
+       Example for Pakistan:
+       0300-1234567
+
+       becomes:
+
+       923001234567
+
+       Do NOT add +, spaces or dashes.
+    */
+
+    const INSTAGRAM_URL =
+        "https://www.instagram.com/YOUR_USERNAME/";
+
+    const WHATSAPP_NUMBER =
+        "923001234567";
+
+    const WHATSAPP_URL =
+        "https://wa.me/" + WHATSAPP_NUMBER +
+        "?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20know%20more%20about%20your%20Islamic%20books.";
+
+</script>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#" class="logo">
+            Islamic<span>Library</span>
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#categories">Categories</a>
+            </li>
+
+            <li>
+                <a href="#books">Books</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="arabic">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        </div>
+
+        <h1>
+            Islamic Books & Hadith Library
+        </h1>
+
+        <p>
+            Discover Islamic knowledge through books,
+            Hadith, Seerah, Fiqh, Qur'an resources
+            and authentic educational material.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#books" class="btn btn-gold">
+                Explore Books
+            </a>
+
+            <a href="#categories" class="btn btn-outline">
+                Browse Categories
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CATEGORIES
+========================================================= -->
+
+<section class="section" id="categories">
+
+    <div class="section-title">
+
+        <h2>
+            Explore Categories
+        </h2>
+
+        <p>
+            Find Islamic knowledge by subject.
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+        <div class="category">
+            <div class="category-icon">📖</div>
+            <h3>Qur'an</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">📜</div>
+            <h3>Hadith</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">🕌</div>
+            <h3>Seerah</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">⚖️</div>
+            <h3>Fiqh</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">🌙</div>
+            <h3>History</h3>
+        </div>
+
+        <div class="category">
+            <div class="category-icon">❤️</div>
+            <h3>Islamic Manners</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BOOKS
+========================================================= -->
+
+<section class="section" id="books">
+
+    <div class="section-title">
+
+        <h2>
+            Islamic Book Collection
+        </h2>
+
+        <p>
+            Explore our growing collection of Islamic resources.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search books..."
+            onkeyup="searchBooks()"
+        >
+
+        <button onclick="searchBooks()">
+            Search
+        </button>
+
+    </div>
+
+
+    <!-- BOOK GRID -->
+
+    <div class="book-grid" id="bookGrid">
+
+
+        <!-- BOOK 1 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    The Holy Qur'an
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Qur'an
+                </span>
+
+                <h3>
+                    The Holy Qur'an
+                </h3>
+
+                <p>
+                    Explore the Qur'an and its message.
+                </p>
+
+                <a
+                    href="#"
+                    class="read-btn"
+                    target="_blank"
+                >
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 2 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    Sahih al-Bukhari
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Hadith
+                </span>
+
+                <h3>
+                    Sahih al-Bukhari
+                </h3>
+
+                <p>
+                    Collection of authentic Hadith.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 3 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    Sahih Muslim
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Hadith
+                </span>
+
+                <h3>
+                    Sahih Muslim
+                </h3>
+
+                <p>
+                    A major collection of authentic Hadith.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 4 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    Riyad as-Salihin
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Hadith
+                </span>
+
+                <h3>
+                    Riyad as-Salihin
+                </h3>
+
+                <p>
+                    Hadith concerning Islamic manners and character.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 5 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    Forty Hadith
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Hadith
+                </span>
+
+                <h3>
+                    Forty Hadith
+                </h3>
+
+                <p>
+                    A collection of important Hadith.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 6 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    The Sealed Nectar
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Seerah
+                </span>
+
+                <h3>
+                    The Sealed Nectar
+                </h3>
+
+                <p>
+                    A biography of Prophet Muhammad ﷺ.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 7 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    Islamic History
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    History
+                </span>
+
+                <h3>
+                    Islamic History
+                </h3>
+
+                <p>
+                    Learn about important events in Islamic history.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 8 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    Islamic Manners
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Manners
+                </span>
+
+                <h3>
+                    Islamic Manners
+                </h3>
+
+                <p>
+                    Learn about character and good conduct.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 9 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    Fiqh Basics
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Fiqh
+                </span>
+
+                <h3>
+                    Fiqh Basics
+                </h3>
+
+                <p>
+                    Introduction to Islamic jurisprudence.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 10 -->
+
+        <div class="book-card">
+
+            <div class="book-cover">
+                <h3>
+                    Daily Duas
+                </h3>
+            </div>
+
+            <div class="book-content">
+
+                <span class="book-tag">
+                    Dua
+                </span>
+
+                <h3>
+                    Daily Duas
+                </h3>
+
+                <p>
+                    A collection of daily supplications.
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read / Download
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="about" id="about">
+
+    <div class="about-container">
+
+        <h2>
+            Our Mission
+        </h2>
+
+        <p>
+            Our goal is to make beneficial Islamic knowledge
+            easier to discover and access. We aim to provide
+            a growing library of Islamic books, Hadith,
+            Seerah, Qur'an resources and educational material.
+        </p>
+
+        <br>
+
+        <p>
+            Please ensure that any books or documents made
+            available through this website are legally
+            shareable, public-domain, or properly licensed.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT / SOCIAL MEDIA
+========================================================= -->
+
+<section class="section social-section" id="contact">
+
+    <div class="section-title">
+
+        <h2>
+            Connect With Us
+        </h2>
+
+        <p>
+            Follow us and contact us for Islamic books
+            and resources.
+        </p>
+
+    </div>
+
+
+    <div class="social-buttons">
+
+        <!-- INSTAGRAM -->
+
+        <a
+            id="instagramLink"
+            href="#"
+            target="_blank"
+            class="social-btn instagram"
+        >
+            📸 Follow on Instagram
+        </a>
+
+
+        <!-- WHATSAPP -->
+
+        <a
+            id="whatsappLink"
+            href="#"
+            target="_blank"
+            class="social-btn whatsapp"
+        >
+            💬 Chat on WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <h3>
+        Islamic Library
+    </h3>
+
+    <p>
+        Islamic Books • Hadith • Qur'an • Seerah • Knowledge
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#books">
+            Books
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
+    <p>
+        © 2026 Islamic Library. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* -------------------------------------------------------
+       SOCIAL MEDIA LINKS
+    ------------------------------------------------------- */
+
+    document.getElementById("instagramLink").href =
+        INSTAGRAM_URL;
+
+    document.getElementById("whatsappLink").href =
+        WHATSAPP_URL;
+
+
+    /* -------------------------------------------------------
+       BOOK SEARCH
+    ------------------------------------------------------- */
+
+    function searchBooks() {
+
+        let input =
+            document.getElementById("searchInput")
+            .value
+            .toLowerCase();
+
+        let books =
+            document.querySelectorAll(".book-card");
+
+        books.forEach(function(book) {
+
+            let text =
+                book.innerText.toLowerCase();
+
+            if (text.includes(input)) {
+
+                book.style.display = "block";
+
+            } else {
+
+                book.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+</script>
+
+
+</body>
+</html>
